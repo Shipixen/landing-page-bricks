@@ -43,7 +43,7 @@ const TemplateItem = ({
   imageUrl: string;
   href: string;
   tags: string[];
-  comingSoon;
+  comingSoon?: boolean;
 }) => {
   return (
     <a
