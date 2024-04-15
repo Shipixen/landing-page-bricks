@@ -1,6 +1,7 @@
 import Header from '@/components/shared/Header';
 import Image from 'next/image';
 import { Metadata } from 'next';
+import { cn } from '@/lib/utils';
 
 const socialBanner = '/static/images/templatesOgImg.jpg';
 const title = 'Landing Page Templates | Shipixen, Next.js & Shadcn UI';
@@ -35,26 +36,41 @@ const TemplateItem = ({
   imageUrl,
   href,
   tags,
+  comingSoon,
 }: {
   name: string;
   description: string;
   imageUrl: string;
   href: string;
   tags: string[];
+  comingSoon;
 }) => {
   return (
     <a
-      className="w-full flex flex-col md:flex-row items-center justify-between bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-800 shadow-sm rounded-lg transition-all overflow-hidden hover:shadow-md hover:bg-gray-50 dark:hover:bg-slate-800"
-      href={href}
+      className={cn(
+        'w-full flex flex-col md:flex-row items-center justify-between bg-white dark:bg-black border border-gray-200 dark:border-gray-800 shadow-sm rounded-lg transition-all overflow-hidden',
+        comingSoon
+          ? 'pointer-events-none'
+          : 'hover:shadow-md hover:bg-gray-50 dark:hover:bg-slate-800',
+      )}
+      href={comingSoon ? '#' : href}
     >
       <div className="w-full max-w-[150px] relative">
-        <Image
-          src={imageUrl}
-          alt={name}
-          width={300}
-          height={300}
-          className="w-full rounded-md"
-        />
+        {!comingSoon ? (
+          <Image
+            src={imageUrl}
+            alt={name}
+            width={300}
+            height={300}
+            className="w-full rounded-md"
+          />
+        ) : (
+          <div className="w-full h-48 bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+            <span className="text-lg font-semibold text-gray-600 dark:text-gray-400">
+              Coming Soon
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="p-6 w-full flex flex-col gap-2">
@@ -127,6 +143,24 @@ export default function Page() {
               imageUrl="/static/images/shipixen/templates/screenshot-two.webp"
               tags={['image', 'developer', 'tool', 'SaaS', 'testimonials']}
               href="/demo/landing-page-templates/template/screenshot-two"
+            />
+
+            <TemplateItem
+              name="Portrails"
+              description="A landing page template for a B2C SaaS AI app, featuring image hero sections and extensive social proof."
+              imageUrl="/static/images/shipixen/templates/portrails.webp"
+              tags={['image', 'AI', 'SaaS', 'social proof']}
+              href="/demo/landing-page-templates/template/portrails"
+              comingSoon
+            />
+
+            <TemplateItem
+              name="HoneyDew"
+              description="A landing page template for a SaaS product, featuring landing page pricing and extensive feature descriptions."
+              imageUrl="/static/images/shipixen/templates/honey-dew.webp"
+              tags={['pricing', 'SaaS', 'feature list', 'feature grid']}
+              href="/demo/landing-page-templates/template/honey-dew"
+              comingSoon
             />
           </div>
         </section>

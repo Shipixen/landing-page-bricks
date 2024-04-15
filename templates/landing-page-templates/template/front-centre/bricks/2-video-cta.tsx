@@ -30,9 +30,7 @@ export default function Component() {
       videoPosition="center"
       videoSrc="https://cache.shipixen.com/features/11-pricing-page-builder.mp4"
       withBackground
-      withBackgroundGlow
       variant="secondary"
-      backgroundGlowVariant="secondary"
       leadingComponent={<LandingProductHuntAward />}
     >
       <Button size="xl" variant="secondary" asChild>
