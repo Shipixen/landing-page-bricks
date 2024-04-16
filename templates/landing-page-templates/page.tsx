@@ -2,6 +2,8 @@ import Header from '@/components/shared/Header';
 import Image from 'next/image';
 import { Metadata } from 'next';
 import { cn } from '@/lib/utils';
+import { ToolSelector } from '@/app/(tools)/tool-selector';
+import { totalTemplates } from 'consts/stats';
 
 const socialBanner = '/static/images/templatesOgImg.jpg';
 const title = 'Landing Page Templates | Shipixen, Next.js & Shadcn UI';
@@ -98,9 +100,15 @@ export default function Page() {
 
       <div className="w-full flex flex-col items-center mb-12">
         <section className={'narrow-container'}>
-          <h1 className="text-3xl font-semibold leading-tight md:leading-tight max-w-xs sm:max-w-none md:text-4xl fancy-heading">
-            Landing Page Templates
-          </h1>
+          <ToolSelector
+            numberOfComponents={totalTemplates}
+            title={'Landing Page Templates'}
+            className="w-full justify-stretch"
+            dropdownClassName="w-full justify-stretch"
+            dropdownTriggerClassName="w-full p-4 lg:w-full text-left lg:text-left"
+            headingClassName="text-left lg:text-left"
+          />
+
           <p className="mt-4">
             Shipixen templates are a set of pre-configured landing page
             component combinations that you can easily copy and paste into your
