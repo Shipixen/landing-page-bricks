@@ -61,7 +61,7 @@ export const FrontCentre = () => {
             <TwoVideoCta />
           </Brick>
 
-          <Brick demo={DEMO_NAME} brick={'3-landing-band'}>
+          <Brick demo={DEMO_NAME} brick={'3-band'}>
             <ThreeBand />
           </Brick>
 
