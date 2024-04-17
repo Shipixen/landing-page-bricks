@@ -77,7 +77,7 @@ export const FrontCentre = () => {
             <SixProductFeaturesGrid />
           </Brick>
 
-          <Brick demo={DEMO_NAME} brick={'7-landing-band'}>
+          <Brick demo={DEMO_NAME} brick={'7-band'}>
             <SevenBand />
           </Brick>
 
